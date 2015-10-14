@@ -3,11 +3,13 @@
 	<head>
 		<title>Jokollaborate</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	</head>
 	<body>
 		<h1>Jokollaborate</h1>
 		<ul class="joke-ul">
-			<li class="prompt-li">Do you want to build a snowman?
+			<li class="prompt-li">
+				<span>Do you want to build a snowman?</span>
 				<ul class="punchline-ul">
 					<li class="punchline-li">to get to the other side</li>
 					<li class="punchline-li">another punchline</li>
@@ -15,5 +17,21 @@
 			</li>
 			<li class="prompt-li">Why did the chicken cross the road?</li>
 		</ul>
+		<script type="text/javascript">
+		$("span").click(function(){
+			var punchlineUl = $(this).next();
+			punchlineUl.toggle(400);
+			/*
+			if(punchlineUl.css('display') == "block")
+			{ 
+				punchlineUl.css("display", "none");	
+			}
+			else
+			{
+				$(this).next().css("display", "block");
+			}
+			*/
+		});
+		</script>
 	</body>
 </html>

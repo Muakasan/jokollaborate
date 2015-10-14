@@ -27,6 +27,10 @@ li
 {
 	font-family: "Courier New", Courier, monospace;
 }
+span
+{
+	cursor: pointer;
+}
 .prompt-li
 {
 	font-weight: bold;
