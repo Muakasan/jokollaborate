@@ -20,6 +20,7 @@ ul
 
 .punchline-ul
 {
+	display: none;
 	padding: 0px;
 }
 
