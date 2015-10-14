@@ -7,16 +7,23 @@
 	</head>
 	<body>
 		<h1>Jokollaborate</h1>
+
 		<ul class="joke-ul">
 			<li class="prompt-li">
-				<span>Do you want to build a snowman?</span>
+				<span>
+					Make a new Prompt
+				</span></br>
+				<input type="text" placeholder="Prompt">
+			</li>
+			<li class="prompt-li">
+				<span class="prompt-span">Do you want to build a snowman?</span>
 				<ul class="punchline-ul">
 					<li class="punchline-li">to get to the other side</li>
 					<li class="punchline-li">another punchline</li>
 				</ul>
 			</li>
 			<li class="prompt-li">
-				<span>Why did the chicken cross the road?</span>
+				<span class="prompt-span">Why did the chicken cross the road?</span>
 				<ul class="punchline-ul">
 					<li class="punchline-li">to get to the other side</li>
 					<li class="punchline-li">another punchline</li>
@@ -24,7 +31,7 @@
 			</li>
 		</ul>
 		<script type="text/javascript">
-		$("span").click(function(){
+		$(".prompt-span").click(function(){
 			var punchlineUl = $(this).next();
 			punchlineUl.toggle(400);
 			/*

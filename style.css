@@ -28,7 +28,7 @@ li
 {
 	font-family: "Courier New", Courier, monospace;
 }
-span
+.prompt-span
 {
 	cursor: pointer;
 }
@@ -55,6 +55,17 @@ h1
 	margin-left: 10%;
 	font-family: "Courier New", Courier, monospace;
 }
+
+input
+{
+	width: 75%;
+	padding: 5px;
+	border-radius: 3px;
+	border-style: solid;
+	border-color:  #3BA3D0;
+	font-family: "Courier New", Courier, monospace;
+}
+
 /*
  #707ED7
 */
