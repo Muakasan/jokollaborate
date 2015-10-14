@@ -1,17 +1,25 @@
+body
+{
+	background-color: #3BA3D0;
+}
 ul
 {
     list-style-type: none;
-    padding: 0; 
+    border-radius: 10px;
+    padding: 15px; 
     margin: 0;
-    color: 
+    background-color: #0772A1;
+
 }
 
 li 
 {
-	
+	height: 50px;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #63AFD0;
 }
-
-#3BA3D0
-#63AFD0
-#0772A1
-#707ED7
+/*
+ #707ED7
+*/
