@@ -16,11 +16,17 @@ li
 {
 	font-weight: bold;
 	height: 50px;
+	line-height: 30px;
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom: 10px;
 	background-color: #63AFD0;
 	font-family: "Courier New", Courier, monospace;
+}
+
+h1
+{
+		font-family: "Courier New", Courier, monospace;
 }
 /*
  #707ED7
