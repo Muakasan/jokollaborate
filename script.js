@@ -21,7 +21,11 @@ $(document).on('keypress', '.punchline-input', function (event) {
 		$(this).val("");
  	}
 });
-
+/*
+myDataRef.on('child_changed', function(childSnapshot) {
+	alert(childSnapshot.child("punchlines").val());
+});
+*/
 myDataRef.on('child_added', function(snapshot) {
 	$("<li>",
 		{
@@ -52,4 +56,21 @@ myDataRef.on('child_added', function(snapshot) {
 						placeholder: "Punchline",
 						class: "punchline-input"
 					})))).insertAfter("#make-prompt-li");
+
+	myDataRef.child(snapshot.key()).child("punchlines").on('child_added', function(punchlineSnapshot){
+		//alert("hi");
+		$("<li>", 
+		{
+			class: "punchline-li",
+			"data-key": punchlineSnapshot.key()
+		}).append(
+		$("<span>",
+		{
+			class: "make-punchline-span",
+			text: punchlineSnapshot.child("text").val()
+		})).insertAfter($("[data-key='" + snapshot.key() +"'] > :nth-child(2)").children(':first-child'));
+		//.insertAfter($($("[data-key='" + snapshot.key() +"']").children()[1]).children().one());		
+	});
+
+
 });
