@@ -6,8 +6,11 @@ $(document).on("click", ".prompt-span", function(){
 $('#prompt-input').on('keypress', function (event) {
 	if(event.which === 13){
 		var prompt = $('#prompt-input').val();
-		myDataRef.push({prompt: prompt, punchlines:{}});
-		$('#prompt-input').val("");
+		if(prompt!="")
+		{
+			myDataRef.push({prompt: prompt, punchlines:{}});
+			$('#prompt-input').val("");
+ 		}
  	}
 });
 
