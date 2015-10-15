@@ -16,9 +16,12 @@ var myDataRef = new Firebase('https://jokollaborate.firebaseio.com/');
 $(document).on('keypress', '.punchline-input', function (event) {
 	if(event.which === 13){
 		var punchline = $(this).val();
-		var key = $(this).parent().parent().parent().attr("data-key");
-		myDataRef.child(key).child("punchlines").push({text: punchline, votes: 0});
-		$(this).val("");
+		if(punchline!="")
+		{
+			var key = $(this).parent().parent().parent().attr("data-key");
+			myDataRef.child(key).child("punchlines").push({text: punchline, votes: 0});
+			$(this).val("");
+		}
  	}
 });
 
