@@ -4,15 +4,17 @@
 		<title>Jokollaborate</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	</head>
 	<body>
 		<h1>Jokollaborate</h1>
 
-		<ul class="joke-ul">
-			<li class="prompt-li">
+		<ul id="joke-ul" class="joke-ul">
+			<li id="make-prompt-li" class="prompt-li">
 				<span>Make a new Prompt</span></br>
-				<input type="text" placeholder="Prompt" class="prompt-input">
+				<input id="prompt-input" type="text" placeholder="Prompt" class="prompt-input">
 			</li>
+			<!--
 			<li class="prompt-li">
 				<span class="prompt-span">Do you want to build a snowman?</span>
 				<ul class="punchline-ul">
@@ -31,22 +33,24 @@
 					<li class="punchline-li">another punchline</li>
 				</ul>
 			</li>
+			-->
 		</ul>
+		<script src="script.js"></script>
 		<script type="text/javascript">
-		$(".prompt-span").click(function(){
+		$(document).on("click", ".prompt-span", function(){
 			var punchlineUl = $(this).next();
 			punchlineUl.toggle(400);
-			/*
-			if(punchlineUl.css('display') == "block")
-			{ 
-				punchlineUl.css("display", "none");	
-			}
-			else
-			{
-				$(this).next().css("display", "block");
-			}
-			*/
 		});
+
+	   	$('#prompt-input').on('keypress', function (event) {
+     	if(event.which === 13){
+     		alert("it worked");
+            //Disable textbox to prevent multiple submit
+        	//$(this).attr("disabled", "disabled");
+
+            //Do Stuff, submit, etc..
+	     	}
+	    });
 		</script>
 	</body>
 </html>
