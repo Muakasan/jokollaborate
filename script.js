@@ -11,7 +11,7 @@ $('#prompt-input').on('keypress', function (event) {
  	}
 });
 
-var myDataRef = new Firebase('https://sizzling-heat-1186.firebaseio.com/');
+var myDataRef = new Firebase('https://jokollaborate.firebaseio.com/');
 
 $(document).on('keypress', '.punchline-input', function (event) {
 	if(event.which === 13){
@@ -21,11 +21,7 @@ $(document).on('keypress', '.punchline-input', function (event) {
 		$(this).val("");
  	}
 });
-/*
-myDataRef.on('child_changed', function(childSnapshot) {
-	alert(childSnapshot.child("punchlines").val());
-});
-*/
+
 myDataRef.on('child_added', function(snapshot) {
 	$("<li>",
 		{
@@ -58,7 +54,6 @@ myDataRef.on('child_added', function(snapshot) {
 					})))).insertAfter("#make-prompt-li");
 
 	myDataRef.child(snapshot.key()).child("punchlines").on('child_added', function(punchlineSnapshot){
-		//alert("hi");
 		$("<li>", 
 		{
 			class: "punchline-li",
@@ -69,8 +64,5 @@ myDataRef.on('child_added', function(snapshot) {
 			class: "make-punchline-span",
 			text: punchlineSnapshot.child("text").val()
 		})).insertAfter($("[data-key='" + snapshot.key() +"'] > :nth-child(2)").children(':first-child'));
-		//.insertAfter($($("[data-key='" + snapshot.key() +"']").children()[1]).children().one());		
 	});
-
-
 });
