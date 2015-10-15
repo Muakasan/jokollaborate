@@ -44,7 +44,9 @@
 
 	   	$('#prompt-input').on('keypress', function (event) {
      	if(event.which === 13){
-     		alert("it worked");
+     		var prompt = $('#prompt-input').val();
+			myDataRef.push({prompt: prompt, punchlines:{}});
+			$('#prompt-input').val("");
             //Disable textbox to prevent multiple submit
         	//$(this).attr("disabled", "disabled");
 
