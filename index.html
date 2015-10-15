@@ -37,22 +37,6 @@
 		</ul>
 		<script src="script.js"></script>
 		<script type="text/javascript">
-		$(document).on("click", ".prompt-span", function(){
-			var punchlineUl = $(this).next();
-			punchlineUl.toggle(400);
-		});
-
-	   	$('#prompt-input').on('keypress', function (event) {
-     	if(event.which === 13){
-     		var prompt = $('#prompt-input').val();
-			myDataRef.push({prompt: prompt, punchlines:{}});
-			$('#prompt-input').val("");
-            //Disable textbox to prevent multiple submit
-        	//$(this).attr("disabled", "disabled");
-
-            //Do Stuff, submit, etc..
-	     	}
-	    });
 		</script>
 	</body>
 </html>

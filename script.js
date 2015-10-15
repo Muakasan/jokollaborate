@@ -1,32 +1,26 @@
+$(document).on("click", ".prompt-span", function(){
+	var punchlineUl = $(this).next();
+	punchlineUl.toggle(400);
+});
+
+$('#prompt-input').on('keypress', function (event) {
+	if(event.which === 13){
+		var prompt = $('#prompt-input').val();
+		myDataRef.push({prompt: prompt, punchlines:{}});
+		$('#prompt-input').val("");
+ 	}
+});
+
 var myDataRef = new Firebase('https://sizzling-heat-1186.firebaseio.com/');
 
-/*
-myDataRef.once("value", function(snapshot) {
-	//var data = snapshot.exportVal();
-	snapshot.forEach(function(childSnapshot){
-	  	$("#jokesList").append(
-		$("<li>", {
-			text: childSnapshot.val().prompt,	
-			"data-key": childSnapshot.key()
-
-		}));
-
-	})
+$(document).on('keypress', '.punchline-input', function (event) {
+	if(event.which === 13){
+		var punchline = $(this).val();
+		var key = $(this).parent().parent().parent().attr("data-key");
+		myDataRef.child(key).child("punchlines").push({text: punchline, votes: 0});
+		$(this).val("");
+ 	}
 });
-*/
-/*
-var testkey = "-K0YyESbjiR7biaKRJHu";
-var promptRef = myDataRef.child(testkey).child("punchlines");
-promptRef.push("test").set({text: "to get to the other side", votes: 0});
-*/
-/*
-$('#submitPromptButton').click(function()
-{	
-	var prompt = $('#promptInput').val();
-	myDataRef.push({prompt: prompt, punchlines:{}});
-	$('#promptInput').val("");
-});
-*/
 
 myDataRef.on('child_added', function(snapshot) {
 	$("<li>",
